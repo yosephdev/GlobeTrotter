@@ -16,7 +16,7 @@ $("#clockSearchBtn").on("click", function(event) {
         method: "GET",
         headers: {
             "x-rapidapi-host": "world-time2.p.rapidapi.com",
-            "x-rapidapi-key": "912f8882abmsh597d3316e2e61bcp121db1jsnabc830ace42d"
+            "x-rapidapi-key": "29dd263ad6mshc1112f72b21d1dcp179f5ejsn33dcadd6248f"
         },
     }
 

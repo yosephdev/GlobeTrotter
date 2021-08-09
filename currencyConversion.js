@@ -1,12 +1,6 @@
 
-
-
-
-// ======================================= CURRENCY CONVERSION API ============================================================
-
 var amount;
 
-// BUTTON TO CONVERT CURRENCY, GRAB HTML IDs IN VARIABLES TO BE USE LATER =========================================
 
 $("#convertBtn").on("click", function (event) {
     event.preventDefault();
