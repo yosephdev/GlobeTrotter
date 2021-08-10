@@ -1,4 +1,4 @@
-# Travel Advisor
+# Menara Travel
 
 ## User Story
 If you are a frequent traveler, you may want to be able to keep a dashboard that displayed on your phone or computer that allows you to look at airports location in different cities, the current timezone in a specified country, and the exchange rate of currency between two countries.
