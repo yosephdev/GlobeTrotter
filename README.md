@@ -1,7 +1,7 @@
 # Travel Advisor
 
 ## User Story
-As a frequent traveler, I want to be able to keep a dashboard that displayed on my phone or computer that allows me to look at airports location in different cities, the current timezone in a specified country, and the exchange rate of currency between two countries.
+If you are a frequent traveler, you may want to be able to keep a dashboard that displayed on your phone or computer that allows you to look at airports location in different cities, the current timezone in a specified country, and the exchange rate of currency between two countries.
 
 ## [Try it](https://menara-travel.vercel.app/)
 
@@ -25,9 +25,4 @@ The following image shows a preview of the web app:
 
 3. [Currency](https://rapidapi.com/natkapral/api/currency-converter5)
 
-## Future
-```sh
-mapQuest API
-migration from jQuery to vanilla JS
-PWA
-```# menara-travel
+
