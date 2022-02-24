@@ -13,7 +13,7 @@ $("#airportBtn").on("click", function (event) {
     var settings = {
         async: true,
         crossDomain: true,
-        url: "https://airportix.p.rapidapi.com/airport/code/" + theCity + "/",
+        url: "airport-web.appspot.com/_ah/api/airportsapi/v1/airports/{icao_code}" + theCity + "/",
         method: "GET",
         headers: {
             "x-rapidapi-host": "airportix.p.rapidapi.com",
