@@ -6,6 +6,8 @@
     "@babel/core": "^7.20.12",
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.2",
+    "node-sass": "^8.0.0",
+    "sass-loader": "^13.2.0",
     "webpack": "^5.75.0"
   }
 }
