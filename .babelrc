@@ -1,0 +1,3 @@
+{
+  "presets": ["@babel/preset-env"]  // preset-env will automatically detect the environment
+}
