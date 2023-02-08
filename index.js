@@ -1,9 +1,9 @@
-const API_KEY = "YOUR_API_KEY";
-
 document.getElementById("weatherBtn").addEventListener("click", function () {
   let city = document.getElementById("weatherCity").value;
   let unit = "metric";
   let temperatureElement = document.getElementById("weatherResult");
+
+  let apiKey = process.env.API_KEY;
 
   let toggleSwitch = document.createElement("div");
   toggleSwitch.innerHTML = `<p class="text-gray-700">°C / °F</p>
@@ -26,7 +26,7 @@ document.getElementById("weatherBtn").addEventListener("click", function () {
 
   function updateTemperature() {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${API_KEY}`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`,
     )
       .then((response) => {
         return response.json();
