@@ -1,4 +1,4 @@
-const API_KEY = require("./config.js");
+const API_KEY = "YOUR_API_KEY";
 
 document.getElementById("weatherBtn").addEventListener("click", function () {
   let city = document.getElementById("weatherCity").value;
