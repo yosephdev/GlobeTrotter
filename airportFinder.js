@@ -1,39 +1,27 @@
+// AIRPORT FINDER //
+// This code is used to find the airport of a city.
 
-// =========================== AIRPORT FINDER API ===============================
-var theCity;
-
-// BUTTON GRAB VALUE FROM INPUT #CITYNAME
-
-$("#airportBtn").on("click", function (event) {
-    event.preventDefault();
-    $("ul").empty();
-    theCity = $("#cityName").val();
-    
-    // AJAX CALL 
-    var settings = {
-        async: true,
-        crossDomain: true,
-        url: "https://airportix.p.rapidapi.com/airport/code/MUC/{icao_code}" + theCity + "/",
-        method: "GET",
-        headers: {
-            "x-rapidapi-host": "airportix.p.rapidapi.com",
-            "x-rapidapi-key": "cbd9be7746msh922bcfc5a5584b6p11a1f2jsn70aedb4ccd02"
-        },
-    };
-    $.ajax(settings).done(function (response) {
-        console.log(response);
-
-        // CREATE A UL TO APPEND LIs UNDER, LATER
-        var $newUl = $("<ul>");
-
-        // CREATE LIs TO GRAB INFO FROM ARRAY AND APPENTO UL
-        var $newLi = $(
-            `<li id="liName" class="list-unstyled text-regular font-weight-regular">${response.data.name.original},</li>
-            <li class="list-unstyled font-weight-regular">${response.data.city.cityOriginal}, ${response.data.stateCode}</li>
-            <li class="list-unstyled font-weight-regular">${response.data.location.latitude}, ${response.data.location.longitude}</li>`
-        );
-        $newLi.appendTo($newUl);
-        // APPENDTO PAGE
-        $newUl.appendTo("#airportNames");
-    });
+document.getElementById("airportBtn").addEventListener("click", function () {
+    const airportCode = document.getElementById("cityName").value;
+    const api = `https://nominatim.openstreetmap.org/search?q=${airportCode} airport&format=json`;
+  
+    fetch(api)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+        if (data.length > 0) {
+          const result = `
+            <p class="mb-4 text-gray-700">
+              ${data[0].display_name}              
+            </p>
+          `;
+  
+          document.getElementById("airportResult").innerHTML = result;
+        } else {
+          document.getElementById("airportResult").innerHTML = "No airport found with code: " + 
+            airportCode;
+        }
+      })
+    .catch(err => console.log(err));
 });
+  
