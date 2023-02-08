@@ -1,56 +1,47 @@
+const fetchExchangeRates = async () => {
+  try {
+    const res = await fetch("https://api.exchangerate.host/latest");
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
-var amount;
+const populateCurrencies = async () => {
+  const exchangeRates = await fetchExchangeRates();
+  const fromCurrencySelect = document.querySelector("#fromCurrency");
+  const toCurrencySelect = document.querySelector("#toCurrency");
+  for (const [currency, rate] of Object.entries(exchangeRates.rates)) {
+    const fromOption = document.createElement("option");
+    fromOption.value = currency;
+    fromOption.textContent = currency;
+    fromCurrencySelect.appendChild(fromOption);
 
+    const toOption = document.createElement("option");
+    toOption.value = currency;
+    toOption.textContent = currency;
+    toCurrencySelect.appendChild(toOption);
+  }
+};
 
-$("#convertBtn").on("click", function (event) {
-    event.preventDefault();
-    $("ul").empty();
+const convertCurrency = async () => {
+  const amountInput = document.querySelector("#amount");
+  const fromCurrencySelect = document.querySelector("#fromCurrency");
+  const toCurrencySelect = document.querySelector("#toCurrency");
+  const convertResult = document.querySelector("#convertResult");
+  const exchangeRates = await fetchExchangeRates();
+  const fromCurrency = fromCurrencySelect.value;
+  const toCurrency = toCurrencySelect.value;
+  const amount = amountInput.value;
+  const exchangeRate =
+    exchangeRates.rates[toCurrency] / exchangeRates.rates[fromCurrency];
+  const result = (amount * exchangeRate).toFixed(2);
+  convertResult.textContent = `${amount} ${fromCurrency} is equivalent to ${result} ${toCurrency}`;
+};
 
-    var cur1 = $("#first-currency").val();
-    var cur2 = $("#second-currency").val();
-    amount = $("#currency-amount").val();
-
-    // AJAX CALL TO URL, CUR1, CUR2 TAKE ANY VALUE SELECTED ON THE HTML PAGE
-    var covSettings = {
-        async: true,
-        crossDomain: true,
-        url:
-            "https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from=" +
-            cur1 +
-            "&to=" +
-            cur2 +
-            "&amount=" +
-            amount,
-        method: "GET",
-        headers: {
-            "x-rapidapi-host": "currency-converter5.p.rapidapi.com",
-            "x-rapidapi-key": "29dd263ad6mshc1112f72b21d1dcp179f5ejsn33dcadd6248f"
-        }
-    };
-
-    $.ajax(covSettings).done(function (response) {
-        console.log(response);
-
-        var $moneyUl = $("<ul>");
-
-        // Converted a string into a float.
-        var rate = response.rates[cur2].rate_for_amount;
-        var parseRate = parseFloat(rate).toFixed(2)
-        var rate2 = response.rates[cur2].rate;
-        var parseRate2 = parseFloat(rate2).toFixed(2)
-
-        var $moneyli = $(`<li class="list-unstyled font-weight-normal">
-            ${"Currency Name: " + response.rates[cur2].currency_name}</li>
-            <li class="list-unstyled font-weight-regular">
-            ${"Rate per unit: " + "$" + parseRate2}</li>                
-            <li class="list-unstyled font-weight-regular">
-            ${"Rate amount: " + "$" + parseRate}</li>`);
-
-        console.log(response.rates[cur2].rate_for_amount);
-
-        $moneyli.appendTo($moneyUl);
-        $moneyUl.appendTo("#currencyConv");
-    });
-
-    console.log(amount);
+document.addEventListener("DOMContentLoaded", () => {
+  populateCurrencies();
+  const convertBtn = document.querySelector("#convertBtn");
+  convertBtn.addEventListener("click", convertCurrency);
 });
