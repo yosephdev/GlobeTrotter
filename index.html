@@ -1,189 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <title>Travel Advisor</title>
-        <!-- Required meta tags -->
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<head>
+    <title>Travel Advisor</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
-            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-            integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-            crossorigin="anonymous" />
-        <link rel="stylesheet" href="style.css" />
-    </head>
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.1.2/tailwind.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/png" sizes="32x32" href="airPlane/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="airPlane/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
     <link rel="manifest" href="./airPlane/site.webmanifest">
-    <body>
-        <header>
-            <div class="title text-center lighten-2 white-text mb-5">
-                <div class="container push-spaces">
-                    <div class="d-flex justify-content-center">
-                        <h1 class="display-4">Travel Advisor</h1>
-                    </div>
-                    <i id="icon" class="fas fa-plane fa-2x"></i>
-                </div>
+</head>
+
+<body>
+    <header class="bg-gray-300 py-10">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-indigo-600">Travel Advisor</h1>
+                <i class="fas fa-plane fa-2x text-indigo-600"></i>
             </div>
-        </header>
+        </div>
+    </header>
 
-<!--AIRPORT FINDER-->
-        <main class="container">
-            <div class="row">
-                <div class="d-flex justify-content-center col">
-                    <div class="card" style="max-width: 20rem;">
-                        <div class="card-header m-4">
-                            Airport Finder
-                        </div>
-                        <div id="airportNames" class="card-body">
-                            <h5 class="card-title">Enter 3 letter Airport code to find airport location</h5>
-                            <input id="cityName" class="placeholder" type="text" onfocus="this.value=''" placeholder="ARN" />
-                            <button id="airportBtn" class="btn btn-success my-2 my-sm-0 search" type="button">
-                                <i class="fas fa-search-location"></i></button>
+    <main class="py-10">
+        <div class="container mx-auto">
+            <div class="flex flex-wrap">
 
-                        </div>
-                    </div>
-                </div>
-
-<!-- WORLD TIMER -->
-                <div class="d-flex justify-content-center col">
-                    <div class="card" style="max-width: 20rem;">
-                        <div class="card-header m-4">World Time</div>
-                        <div id="clockZones" class="card-body">
-                            <h5 class="card-title">Enter in a major city and continent to get the current timezone.</h5>
-                            <input class="placeholder mb-3" id="clock-city" type="text" placeholder="Stockholm" />
-                            <input id="clock-country" class="placeholder" type="text" placeholder="Europe" />
-                            <button id="clockSearchBtn" class="btn btn-success my-2 my-sm-0 search"
-                                type="button">
-                                <i class="fas fa-search"></i>
+                <!-- AIRPORT FINDER -->
+                <div class="w-full md:w-1/3 p-4">
+                    <div class="bg-white shadow-md rounded p-6">
+                        <h3 class="mb-4 text-lg font-bold">Airport Finder</h3>
+                        <p class="mb-4 text-gray-700">Enter 3 letter airport code to find airport location</p>
+                        <div class="relative">
+                            <input id="cityName"
+                                class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
+                                type="text" placeholder="ARN">
+                            <button id="airportBtn"
+                                class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2">
+                                <i class="fas fa-search-location"></i>
                             </button>
                         </div>
+                        <div id="airportResult" class="mt-6">
+                        </div>
                     </div>
                 </div>
-<!-- CURRENCY CONVERTER -->
-                
-<div class="d-flex justify-content-center col">
-                    <div class="card" style="max-width: 20rem;">
-                        <div class="card-header m-4">Currency Converter</div>
-                        <div id="currencyConv" class="card-body">
-                            <h5 class="card-title">Select your currency from the dropdown menu to see the current
-                                exchange
-                                rate.</h5>
-                            <select id="first-currency" class="placeholder" name="">
-                                <option value="AUD">Australian Dolloar(AUD)</option>
-                                <option value="BGN">Bulgarian Lev(BGN)</option>
-                                <option value="BRL">Brazilian Real(BRL)</option>
-                                <option value="CAD">Canadian Dollar(CAD)</option>
-                                <option value="CHF">Swiss Franc(CHF)</option>
-                                <option value="CNY">Chinese Yuan(CNY)</option>
-                                <option value="CZK">Czech Koruna(CZK)</option>
-                                <option value="DKK">Danish Krone(DKK)</option>
-                                <option value="EUR" selected>Euro(EUR)</option>
-                                <option value="GBP">Pound Sterling(GBP)</option>
-                                <option value="HKD">Hong Kong Dollar(HKD)</option>
-                                <option value="HRK">Croatian Kuna(HRK)</option>
-                                <option value="HUF">Hungarian Forint(HUF)</option>
-                                <option value="IDR">Indonesian Rupiah(IDR)</option>
-                                <option value="ILS">Israeli Shekel(ILS)</option>
-                                <option value="INR">Indian Rupee(INR)</option>
-                                <option value="ISK">Icelandic Krona(ISK)</option>
-                                <option value="JPY">Japanese Yen(JPY)</option>
-                                <option value="KRW">South Korean Won(KRW)</option>
-                                <option value="MXN">Mexican Peso(MXN)</option>
-                                <option value="MYR">Malaysian Ringgit(MYR)</option>
-                                <option value="NOK">Norwegian Krone(NOK)</option>
-                                <option value="NZD">New Zealand Dollar(NZD)</option>
-                                <option value="PHP">Philippine Peso(PHP)</option>
-                                <option value="PLN">Polish Zloty(PLN)</option>
-                                <option value="RON">Romanian Leu(RON)</option>
-                                <option value="RUB">Russian Ruble(RUB)</option>
-                                <option value="SEK">Swedish Krona(SEK)</option>
-                                <option value="SGD">Singapore Dollar(SGD)</option>
-                                <option value="THB">Thai Baht(THB)</option>
-                                <option value="TRY">Turkish Lira(TRY)</option>
-                                <option value="USD">United States Dollar(USD)</option>
-                                <option value="ZAR">South African Rand(ZAR)</option>
-                            </select>
 
-                            <select id="second-currency" class="placeholder" name="">
-                                <option value="AUD">Australian Dolloar(AUD)</option>
-                                <option value="BGN">Bulgarian Lev(BGN)</option>
-                                <option value="BRL">Brazilian Real(BRL)</option>
-                                <option value="CAD">Canadian Dollar(CAD)</option>
-                                <option value="CHF">Swiss Franc(CHF)</option>
-                                <option value="CNY">Chinese Yuan(CNY)</option>
-                                <option value="CZK">Czech Koruna(CZK)</option>
-                                <option value="DKK">Danish Krone(DKK)</option>
-                                <option value="EUR">Euro(EUR)</option>
-                                <option value="GBP">Pound Sterling(GBP)</option>
-                                <option value="HKD">Hong Kong Dollar(HKD)</option>
-                                <option value="HRK">Croatian Kuna(HRK)</option>
-                                <option value="HUF">Hungarian Forint(HUF)</option>
-                                <option value="IDR">Indonesian Rupiah(IDR)</option>
-                                <option value="ILS">Israeli Shekel(ILS)</option>
-                                <option value="INR">Indian Rupee(INR)</option>
-                                <option value="ISK">Icelandic Krona(ISK)</option>
-                                <option value="JPY">Japanese Yen(JPY)</option>
-                                <option value="KRW">South Korean Won(KRW)</option>
-                                <option value="MXN">Mexican Peso(MXN)</option>
-                                <option value="MYR">Malaysian Ringgit(MYR)</option>
-                                <option value="NOK">Norwegian Krone(NOK)</option>
-                                <option value="NZD">New Zealand Dollar(NZD)</option>
-                                <option value="PHP">Philippine Peso(PHP)</option>
-                                <option value="PLN">Polish Zloty(PLN)</option>
-                                <option value="RON">Romanian Leu(RON)</option>
-                                <option value="RUB">Russian Ruble(RUB)</option>
-                                <option value="SEK">Swedish Krona(SEK)</option>
-                                <option value="SGD">Singapore Dollar(SGD)</option>
-                                <option value="THB">Thai Baht(THB)</option>
-                                <option value="TRY">Turkish Lira(TRY)</option>
-                                <option value="USD">United States Dollar(USD)</option>
-                                <option value="ZAR">South African Rand(ZAR)</option>
+
+                <!-- CURRENCY CONVERTER -->
+                <div class="w-full md:w-1/3 p-4">
+                    <div class="bg-white shadow-md rounded p-6">
+                        <h3 class="mb-4 text-lg font-bold">Currency Converter</h3>
+                        <p class="mb-4 text-gray-700">Enter amount and select currency to convert</p>
+                        <div class="relative">
+                            <input id="amount"
+                                class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
+                                type="number" placeholder="100">
+                            <select id="fromCurrency" class="border border-gray-400 rounded py-2 px-3">
+                                <option value="">From</option>
                             </select>
-                            <input id="currency-amount" type="number"></input>
-                            <br>
-                            <button id="convertBtn" type="button" class="btn btn-success ml-2 mt-3">Convert</button>
+                            <select id="toCurrency" class="border border-gray-400 rounded py-2 px-3">
+                                <option value="">To</option>
+                            </select>
+                            <button id="convertBtn"
+                                class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2">
+                                <i class="fas fa-exchange-alt"></i>
+                            </button>
                         </div>
+                        <div id="convertResult" class="mt-6"></div>
+                    </div>
+                </div>
+
+                <!-- WEATHER FINDER -->
+                <div class="w-full md:w-1/3 p-4">
+                    <div class="bg-white shadow-md rounded p-6">
+                        <h3 class="mb-4 text-lg font-bold">Weather Finder</h3>
+                        <p class="mb-4 text-gray-700">Enter city to find weather information</p>
+                        <div class="relative">
+                            <input id="weatherCity"
+                                class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
+                                type="text" placeholder="Stockholm">
+                            <button id="weatherBtn"
+                                class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2">
+                                <i class="fas fa-cloud-sun-rain"></i>
+                            </button>
+                        </div>
+                        <div id="weatherResult" class="mt-6">
+                            <div id="tempToggle">
+                                <button id="celsiusBtn">°C</button>
+                                <button id="fahrenheitBtn">°F</button>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
-        </main>
-<!-- ----------------------------------------------------------- -->
-        <footer class="new_footer_area bg_color">
-            <div class="new_footer_top">
-                <div class="footer_bg">
-                    <div class="footer_bg_one"></div>
-                    <div class="footer_bg_two"></div>
-                </div>
-            </div>
-            <div class="footer_bottom">
-                <div class="container">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 col-sm-7">
-                            <p class="mb-0 f_400">© yoseph.dev, 2021 All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        
-        <!-- Optional JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-            crossorigin="anonymous"></script>
-        <script src="moment.js"></script>
-        <script src="./airportFinder.js"></script>
-        <script src="./timeZone.js"></script>
-        <script src="./currencyConversion.js"></script>
-    </body>
+        </div>
+    </main>
+
+    <!--FOOTER-->
+    <footer class="bg-indigo-600 text-white py-12">
+        <p class="text-center text-sm">&copy; Travel Advisor 2023</p>
+    </footer>
+    <!--JAVASCRIPT-->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/airport-autocomplete-js@latest/dist/index.browser.min.js"></script>
+    <script src="moment.js"></script>
+    <script src="./airportFinder.js"></script>
+    <script src="./currentWeather.js"></script>
+    <script src="./timeZone.js"></script>
+    <script src="./currencyConversion.js"></script>
+</body>
+
 </html>
