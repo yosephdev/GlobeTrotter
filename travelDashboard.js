@@ -12,11 +12,7 @@ function travelDashboard() {
   });
 
   // Translate website content
-  // function translateContent(language) {
-    // Code to translate website content based on the selected language
-  // }
-
-  function translateContent(userLanguage) {
+   function translateContent(userLanguage) {
     const contentElements = document.querySelectorAll(".content");
 
     contentElements.forEach((element) => {
@@ -33,6 +29,23 @@ function travelDashboard() {
     });
   }
 
+  // Get user preferences
+  const preferences = document.querySelectorAll(".preference");
+  preferences.forEach((preference) => {
+    preference.addEventListener("click", function () {
+      if (preference.classList.contains("active")) {
+        preference.classList.remove("active");
+        userPreferences = userPreferences.filter(
+          (item) => item !== preference.id
+        );
+      } else {
+        preference.classList.add("active");
+        userPreferences.push(preference.id);
+      }
+    });
+  });
+  
+
 
   // Get user destination preference
   const selectDestination = document.getElementById("destination-select");
@@ -40,43 +53,6 @@ function travelDashboard() {
     userDestination = option.value;
     provideRecommendations(userDestination);
   });
-
-  // Provide destination recommendations
- function provideRecommendations(destination) {
-   // Code to provide recommendations based on the selected destination and user preferences
-
-   // Example implementation:
-   let recommendations = [];
-   switch (destination) {
-     case "Europe":
-       recommendations = ["Paris", "London", "Rome"];
-       break;
-     case "Asia":
-       recommendations = ["Tokyo", "Beijing", "Bangkok"];
-       break;
-     case "North America":
-       recommendations = ["New York", "Los Angeles", "Toronto"];
-       break;
-     default:
-       recommendations = ["Invalid destination"];
-       break;
-   }
-
-   // Remove any existing recommendations
-   document
-     .querySelectorAll(".destination-item")
-     .forEach((elem) => elem.remove());
-
-   // Add the new recommendations to the HTML
-   let recommendationsList = document.querySelector(".mb-5");
-   recommendations.forEach((item) => {
-     let newItem = document.createElement("li");
-     newItem.classList.add("destination-item", "text-gray-600");
-     newItem.textContent = item;
-     recommendationsList.appendChild(newItem);
-   });
- }
-
 
   // Get user travel information and tips
   const travelInfoBtn = document.getElementById("travel-info-btn");
