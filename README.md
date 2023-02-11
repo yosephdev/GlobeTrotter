@@ -17,7 +17,7 @@ The following technologies were used in the development of this web application:
 
 ## Preview
 
-Here's a preview of the web app:
+## Here's a preview of the web app:
 <img src="airPlane/globe-trotter.jpeg" style="border-radius: 50% 10% / 10% 40%" width="70%">
 
 
