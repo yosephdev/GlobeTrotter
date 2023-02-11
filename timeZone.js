@@ -1,17 +1,16 @@
 // Time Zone API
 // Get the time zone of a city
 
-document.querySelector("#timezoneBtn").addEventListener("click", function () {
-  const timezone = document.querySelector("#timezone").value;
+document.querySelector("#timeZoneBtn").addEventListener("click", function () {
+  const city = document.querySelector("#timeZoneCity").value;
   fetch(
-    `http://api.timezonedb.com/v2.1/get-time-zone?key=your_api_key&format=json&by=zone&zone=${timezone}`
+    `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.openWeatherMapApiKey}`
   )
     .then((response) => response.json())
     .then((data) => {
-      const time = data.formatted;
-      document.querySelector("#timezoneResults").innerHTML = "Time: " + time;
+      const time = new Date(data.dt * 1000);
+      document.querySelector("#timeZoneResult").innerHTML = "Time: " + time;
     })
     .catch((error) => console.error(error));
 });
 
- 
