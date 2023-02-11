@@ -25,7 +25,7 @@ Here's a preview of the web app:
 
 The following APIs were used to retrieve airport locations, timezones, currency exchange rates, and weather information:
 
-  [Airport API]
-  [Timezone API]
-  [Currency API]
-  [Weather API]
+  [Airport API] (https://www.nominatim.openstreetmap.org/)
+  [Timezone API] (https://openweathermap.org/api)
+  [Currency API] (https://api.exchangerate.host/)
+  [Weather API] (https://openweathermap.org/api)
