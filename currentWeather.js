@@ -1,36 +1,24 @@
-// CURRENT WEATHER //
-// This is a simple weather app that fetches data from the OpenWeatherMap API.
-
 document.getElementById("weatherBtn").addEventListener("click", function () {
   let city = document.getElementById("weatherCity").value;
   let unit = "metric";
   let temperatureElement = document.getElementById("weatherResult");
 
-  let apiKey = process.env.API_KEY;
+  let celsiusBtn = document.getElementById("celsiusBtn");
+  let fahrenheitBtn = document.getElementById("fahrenheitBtn");
 
+  celsiusBtn.addEventListener("click", function () {
+    unit = "metric";
+    updateTemperature();
+  });
 
-  let toggleSwitch = document.createElement("div");
-  toggleSwitch.innerHTML = `<p class="text-gray-700">°C / °F</p>
-                                <label class="switch">
-                                    <input type="checkbox">
-                                    <span class="slider round"></span>
-                                </label>`;
-  temperatureElement.appendChild(toggleSwitch);
-
-  document
-    .querySelector("input[type='checkbox']")
-    .addEventListener("change", function () {
-      if (this.checked) {
-        unit = "imperial";
-      } else {
-        unit = "metric";
-      }
-      updateTemperature();
-    });
+  fahrenheitBtn.addEventListener("click", function () {
+    unit = "imperial";
+    updateTemperature();
+  });
 
   function updateTemperature() {
     fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${apiKey}`
+      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${API_KEY}`
     )
       .then((response) => {
         return response.json();
