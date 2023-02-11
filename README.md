@@ -1,28 +1,31 @@
-# Menara Travel
+# GlobeTrotter
 
 ## User Story
-If you are a frequent traveler, you may want to be able to keep a dashboard that displayed on your phone or computer that allows you to look at airports location in different cities, the current timezone in a specified country, and the exchange rate of currency between two countries.
+If you are a frequent traveler, you may want to have a dashboard that can be displayed on your phone or computer to view airport locations in different cities, the current timezone in a specified country, and currency exchange rates between two countries.
+## Try it out here: [GlobeTrotter](https://menara-travel.vercel.app/)
 
-## [Try it](https://menara-travel.vercel.app/)
+## Technologies Used
 
-## Technology
+The following technologies were used in the development of this web application:
+
 - HTML
 - CSS
-- JQuery 
-- Bootstrap
+- JQuery
+- Tailwind CSS
 - REST API
 - MomentJS
 
-The following image shows a preview of the web app:
+## Preview
 
-<img src="airPlane/travelAdvisor.png" style="border-radius: 50% 10% / 10% 40%" width="70%">
-
-### Below are the following API's used to retrieve airports, timezones, and currency exchange rates:
-
-1. [AirportIX](https://rapidapi.com/neelers/api/airportix?endpoint=apiendpoint_29dd263ad6mshc1112f72b21d1dcp179f5ejsn33dcadd6248f) 
-
-2. [WorldTime](https://rapidapi.com/brianiswu/api/world-time2)
-
-3. [Currency](https://rapidapi.com/natkapral/api/currency-converter5)
+Here's a preview of the web app:
+<img src="airPlane/" style="border-radius: 50% 10% / 10% 40%" width="70%">
 
 
+## APIs Utilized
+
+The following APIs were used to retrieve airport locations, timezones, currency exchange rates, and weather information:
+
+  [Airport API]
+  [Timezone API]
+  [Currency API]
+  [Weather API]
