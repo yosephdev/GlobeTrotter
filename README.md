@@ -2,7 +2,7 @@
 
 ## User Story
 If you are a frequent traveler, you may want to have a dashboard that can be displayed on your phone or computer to view airport locations in different cities, the current timezone in a specified country, and currency exchange rates between two countries.
-## Try it out here: [GlobeTrotter](https://globe-trotter.vercel.app/)
+## Try it out here: [GlobeTrotter](https://yetnew.me/globetrotter/)
 
 ## Technologies Used
 
