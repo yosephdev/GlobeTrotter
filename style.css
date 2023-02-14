@@ -229,39 +229,57 @@ input[type="text"] {
 
 /* For small screens */
 @media (max-width: 576px) {
-    header {
-        height: 100px;
+    .header {
+        height: 60px;
+        font-size: 18px;
+    }
+
+    .header h1 {
+        margin-left: 5px;
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    .header i {
+        margin-left: 5px;
+        font-size: 20px;
     }
 }
 
 /* For medium screens */
 @media (min-width: 576px) and (max-width: 768px) {
-    header {
-        height: 120px;
+    .header {
+        height: 80px;
+        font-size: 20px;
     }
 
-
-    .text-4xl {
-        font-size: 3rem;
+    .header h1 {
+        margin-left: 10px;
+        font-size: 24px;
+        letter-spacing: 2px;
     }
 
-    .fa-2x {
-        font-size: 1.5rem;
+    .header i {
+        margin-left: 10px;
+        font-size: 24px;
     }
 }
 
-
 /* For extra large screens */
 @media (min-width: 992px) and (max-width: 1200px) {
-    header {
-        height: 160px;
+    .header {
+        height: 100px;
+        font-size: 24px;
     }
 
-    .text-4xl {
-        font-size: 4rem;
+    .header h1 {
+        margin-left: 20px;
+        font-size: 32px;
+        letter-spacing: 4px;
     }
 
-    .fa-2x {
-        font-size: 2rem;
+    .header i {
+        margin-left: 20px;
+        font-size: 28px;
     }
 }
