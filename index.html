@@ -29,9 +29,10 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">    
 
 </head>
+
 
 <body>
     <header class="header">
@@ -40,9 +41,6 @@
             <i class="fas fa-plane"></i>
         </div>
     </header>
-
-
-
     <main class="py-10">
         <div class="container mx-auto">
             <div class="flex flex-wrap">
@@ -66,20 +64,16 @@
                 <!-- Language translation section -->
                 <div class="p-5 bg-gray-200">
                     <h1 class="text-1xl font-bold mb-5">Language translation</h1>
-                    <select class="border p-2 mb-5" id="language-select">
+                    <select class="border p-2 mb-5" id="language-select" onchange="translate()">
                         <option value="en">English</option>
-                        <option value="de">German</option>
-                        <option value="it">Italian</option>
-                        <option value="es">Swedish</option>
+                        <option value="es">Spanish</option>
                         <option value="fr">French</option>
-                        <option value="ja">Japanese</option>
-                        <option value="zh">Chinese</option>                       
                     </select>
 
                     <p class="mb-5">This website is now translated to: <span id="selected-language"
                             class="text-gray-600">English</span></p>
+                </div>                
 
-                </div>
 
                 <!-- AIRPORT FINDER -->
                 <div class="w-full md:w-1/3 p-4">
