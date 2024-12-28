@@ -1,31 +1,36 @@
-# GlobeTrotter
+# 🌍 GlobeTrotter
 
-## User Story
-If you are a frequent traveler, you may want to have a dashboard that can be displayed on your phone or computer to view airport locations in different cities, the current timezone in a specified country, and currency exchange rates between two countries.
-## Try it out here: [GlobeTrotter](https://yetnew.me/globetrotter/)
+## ✈️ User Story
 
-## Technologies Used
+Are you a frequent traveler? GlobeTrotter is your ultimate travel dashboard, accessible on both your phone and computer. Easily view airport locations in different cities, check the current timezone in any country, and get up-to-date currency exchange rates between two countries.
 
-The following technologies were used in the development of this web application:
+## 🌐 Try it out here: [GlobeTrotter](https://yoseph.dev/globetrotter/)
 
-- HTML
-- CSS
-- JQuery
-- Tailwind CSS
-- REST API
-- MomentJS
+## 🛠️ Technologies Used
 
-## Preview
+This web application was developed using the following technologies:
 
-## Here's a preview of the web app:
-<img src="airPlane/globe-trotter.jpeg" style="border-radius: 50% 10% / 10% 40%" width="70%">
+- **HTML**: For structuring the web pages.
+- **CSS**: For styling the application.
+- **JQuery**: For DOM manipulation and event handling.
+- **Tailwind CSS**: For utility-first CSS styling.
+- **REST API**: For fetching data from external services.
+- **MomentJS**: For date and time manipulation.
 
+## 👀 Preview
 
-## APIs Utilized
+Here's a sneak peek of the GlobeTrotter web app:
+![GlobeTrotter Preview](airPlane/globe-trotter.jpeg)
 
-The following APIs were used to retrieve airport locations, timezones, currency exchange rates, and weather information:
+## 🔗 APIs Utilized
 
-- [Airport API] (https://www.nominatim.openstreetmap.org/)
-- [Timezone API] (https://openweathermap.org/api)
-- [Currency API] (https://api.exchangerate.host/)
-- [Weather API] (https://openweathermap.org/api)
+We utilized the following APIs to provide comprehensive travel information:
+
+- 🌐 [Airport API](https://www.nominatim.openstreetmap.org/): Retrieve airport locations.
+- 🕒 [Timezone API](https://openweathermap.org/api): Get current timezone information.
+- 💱 [Currency API](https://api.exchangerate.host/): Fetch currency exchange rates.
+- ☁️ [Weather API](https://openweathermap.org/api): Access weather information.
+
+---
+
+Feel free to explore and enjoy your travels with GlobeTrotter! If you have any questions or feedback, don't hesitate to reach out. Safe travels! ✈️🌍

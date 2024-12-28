@@ -1,8 +1,7 @@
 const fetchExchangeRates = async () => {
   try {
     const res = await fetch("https://api.exchangerate.host/latest");
-    const data = await res.json();
-    return data;
+    return await res.json();
   } catch (error) {
     console.error(error);
   }
@@ -12,36 +11,25 @@ const populateCurrencies = async () => {
   const exchangeRates = await fetchExchangeRates();
   const fromCurrencySelect = document.querySelector("#fromCurrency");
   const toCurrencySelect = document.querySelector("#toCurrency");
-  for (const [currency, rate] of Object.entries(exchangeRates.rates)) {
-    const fromOption = document.createElement("option");
-    fromOption.value = currency;
-    fromOption.textContent = currency;
-    fromCurrencySelect.appendChild(fromOption);
-
-    const toOption = document.createElement("option");
-    toOption.value = currency;
-    toOption.textContent = currency;
-    toCurrencySelect.appendChild(toOption);
-  }
+  Object.entries(exchangeRates.rates).forEach(([currency]) => {
+    const fromOption = new Option(currency, currency);
+    const toOption = new Option(currency, currency);
+    fromCurrencySelect.add(fromOption);
+    toCurrencySelect.add(toOption);
+  });
 };
 
 const convertCurrency = async () => {
-  const amountInput = document.querySelector("#amount");
-  const fromCurrencySelect = document.querySelector("#fromCurrency");
-  const toCurrencySelect = document.querySelector("#toCurrency");
-  const convertResult = document.querySelector("#convertResult");
+  const amount = document.querySelector("#amount").value;
+  const fromCurrency = document.querySelector("#fromCurrency").value;
+  const toCurrency = document.querySelector("#toCurrency").value;
   const exchangeRates = await fetchExchangeRates();
-  const fromCurrency = fromCurrencySelect.value;
-  const toCurrency = toCurrencySelect.value;
-  const amount = amountInput.value;
-  const exchangeRate =
-    exchangeRates.rates[toCurrency] / exchangeRates.rates[fromCurrency];
+  const exchangeRate = exchangeRates.rates[toCurrency] / exchangeRates.rates[fromCurrency];
   const result = (amount * exchangeRate).toFixed(2);
-  convertResult.textContent = `${amount} ${fromCurrency} is equivalent to ${result} ${toCurrency}`;
+  document.querySelector("#convertResult").textContent = `${amount} ${fromCurrency} is equivalent to ${result} ${toCurrency}`;
 };
 
 document.addEventListener("DOMContentLoaded", () => {
   populateCurrencies();
-  const convertBtn = document.querySelector("#convertBtn");
-  convertBtn.addEventListener("click", convertCurrency);
+  document.querySelector("#convertBtn").addEventListener("click", convertCurrency);
 });

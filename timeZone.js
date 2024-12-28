@@ -1,7 +1,7 @@
 // Time Zone API
 // Get the time zone of a city
 
-document.querySelector("#timeZoneBtn").addEventListener("click", function () {
+document.querySelector("#timeZoneBtn").addEventListener("click", () => {
   const city = document.querySelector("#timeZoneCity").value;
   fetch(
     `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${config.openWeatherMapApiKey}`

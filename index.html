@@ -42,158 +42,152 @@
 
 <body class="bg-gray-100 text-gray-800">
     <header class="header bg-indigo-600 text-white p-5">
-        <div class="container mx-auto">
+        <div class="container mx-auto flex items-center">
             <h1 class="text-3xl font-bold">GlobeTrotter</h1>
-            <i class="fas fa-plane"></i>
+            <i class="fas fa-plane ml-2"></i>
         </div>
     </header>
     <main class="py-10">
-        <div class="container mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
 
-                <!-- Travel information and tips section -->
-                <div class="p-5 bg-white shadow-md rounded">
-                    <h1 class="text-1xl font-bold mb-5">Travel information and tips</h1>
+            <!-- Travel information and tips section -->
+            <div class="p-5 bg-white shadow-md rounded">
+                <h1 class="text-xl font-bold mb-5">Travel information and tips</h1>
 
-                    <p class="mb-5">Currency: <span class="text-gray-600">Exchange your currency before you travel to
-                            avoid any inconvenience.</span></p>
-                    <p class="mb-5">Weather: <span class="text-gray-600">Check the weather forecast for your destination
-                            country to pack accordingly.</span></p>
-                </div>
-
-                <!-- Quote section -->
-                <div class="p-5 bg-gray-200">
-                    <h1 class="text-1xl font-bold mb-5">Quote of the Day</h1>
-                    <p id="quote" class="text-gray-600"></p>
-                </div>
-
-
-                <!-- AIRPORT FINDER -->
-                <div class="w-full">
-                    <div class="bg-white shadow-md rounded p-6">
-                        <h3 class="mb-4 text-lg font-bold">Airport Finder</h3>
-                        <p class="mb-4 text-gray-700">Enter 3 letter airport code to find airport location</p>
-                        <div class="relative">
-                            <input id="cityName"
-                                class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
-                                type="text" placeholder="ARN">
-                            <button id="airportBtn"
-                                class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2"
-                                aria-label="Search Airport" type="button">
-                                <i class="fas fa-search-location"></i>
-                            </button>
-                        </div>
-                        <div id="airportResult" class="mt-6"></div>
-                    </div>
-                </div>
-
-
-                <!-- TimeZone -->
-                <div class="w-full">
-                    <div class="bg-white shadow-md rounded p-6">
-                        <h3 class="mb-4 text-lg font-bold">Time Zone Finder</h3>
-                        <p class="mb-4 text-gray-700">Enter city to find time zone</p>
-                        <div class="relative">
-                            <input id="timeZoneCity"
-                                class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
-                                type="text" placeholder="Stockholm">
-                            <button id="timeZoneBtn"
-                                class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2"
-                                aria-label="Search Time Zone" type="button">
-                                <i class="fas fa-clock"></i>
-                            </button>
-                        </div>
-                        <div id="timeZoneResult" class="mt-6"></div>
-                    </div>
-                </div>
-
-                <!-- CURRENCY CONVERTER -->
-                <div class="w-full">
-                    <div class="bg-white shadow-md rounded p-6">
-                        <h3 class="mb-4 text-lg font-bold">Currency Converter</h3>
-                        <p class="mb-4 text-gray-700">Enter amount and select currency to convert</p>
-                        <div class="relative">
-                            <input id="amount"
-                                class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
-                                type="number" placeholder="100">
-                            <label for="fromCurrency">From Currency:</label>
-                            <select id="fromCurrency" class="border border-gray-400 rounded py-2 px-3">
-                                <option value="">From</option>
-                            </select>
-                            <label for="toCurrency">To Currency:</label>
-                            <select id="toCurrency" class="border border-gray-400 rounded py-2 px-3">
-                                <option value="">To</option>
-                            </select>
-                            <button id="convertBtn"
-                                class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2"
-                                aria-label="Convert Currency" type="button">
-                                <i class="fas fa-exchange-alt"></i>
-                            </button>
-                        </div>
-                        <div id="convertResult" class="mt-6"></div>
-                    </div>
-                </div>
-
-                <!-- WEATHER FINDER -->
-                <div class="w-full">
-                    <div class="bg-white shadow-md rounded p-6">
-                        <h3 class="mb-4 text-lg font-bold">Weather Finder</h3>
-                        <p class="mb-4 text-gray-700">Enter city to find weather information</p>
-                        <div class="relative">
-                            <input id="weatherCity"
-                                class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
-                                type="text" placeholder="Stockholm">
-                            <button id="weatherBtn"
-                                class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2"
-                                type="button" aria-label="Search Weather">
-                                <i class="fas fa-cloud-sun-rain"></i>
-                            </button>
-                        </div>
-                        <div id="weatherResult" class="mt-6">
-                            <div id="tempToggle">
-                                <button id="celsiusBtn" type="button">°C</button>
-                                <button id="fahrenheitBtn" type="button">°F</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Destination recommendations section -->
-                <div class="p-5 bg-gray-200">
-                    <h1 class="text-1xl font-bold mb-5 text-gray-800">Visiting Place Recommendations</h1>
-                    <p class="mb-5 text-gray-800">Find your next destination based on your preferences:</p>
-                    <div class="mb-5 flex justify-between">
-                        <input id="destination" type="text" class="p-2 border border-gray-400 rounded-lg"
-                            placeholder="Enter desired destination">
-                        <button id="destinationBtn" type="button"
-                            class="btn bg-indigo-500 text-white p-2 rounded-lg">Get Recommendations</button>
-                    </div>
-                    <p class="mb-5 text-gray-800">Our Recommendations:</p>
-                    <ul id="destinationResults" class="list-disc">
-                        <!-- Recommendations will be inserted here -->
-                    </ul>
-                </div>
-
-
-                <!-- Social media integration section -->
-                <div class="p-5 bg-gray-200">
-                    <h1 class="text-1xl font-bold mb-5">Social media integration</h1>
-                    <p class="mb-5">Share your travel plans and experiences with your friends and family on social
-                        media:</p>
-                    <div class="flex mb-5">
-                        <a href="#" class="p-2 bg-gray-500 text-white rounded mr-2">Facebook</a>
-                        <a href="#" class="p-2 bg-gray-500 text-white rounded mr-2">Twitter</a>
-                        <a href="#" class="p-2 bg-gray-500 text-white rounded">Instagram</a>
-                    </div>
-                </div>
-
+                <p class="mb-5">Currency: <span class="text-gray-600">Exchange your currency before you travel to
+                        avoid any inconvenience.</span></p>
+                <p class="mb-5">Weather: <span class="text-gray-600">Check the weather forecast for your destination
+                        country to pack accordingly.</span></p>
             </div>
+
+            <!-- Quote section -->
+            <div class="p-5 bg-gray-200">
+                <h1 class="text-xl font-bold mb-5">Quote of the Day</h1>
+                <p id="quote" class="text-gray-600"></p>
+            </div>
+
+
+            <!-- AIRPORT FINDER -->
+            <div class="w-full">
+                <div class="bg-white shadow-md rounded p-6">
+                    <h3 class="mb-4 text-lg font-bold">Airport Finder</h3>
+                    <p class="mb-4 text-gray-700">Enter 3 letter airport code to find airport location</p>
+                    <div class="relative">
+                        <input id="cityName"
+                            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
+                            type="text" placeholder="ARN">
+                        <button id="airportBtn"
+                            class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2"
+                            aria-label="Search Airport" type="button">
+                            <i class="fas fa-search-location"></i>
+                        </button>
+                    </div>
+                    <div id="airportResult" class="mt-6"></div>
+                </div>
+            </div>
+
+
+            <!-- TimeZone -->
+            <div class="w-full">
+                <div class="bg-white shadow-md rounded p-6">
+                    <h3 class="mb-4 text-lg font-bold">Time Zone Finder</h3>
+                    <p class="mb-4 text-gray-700">Enter city to find time zone</p>
+                    <div class="relative">
+                        <input id="timeZoneCity"
+                            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
+                            type="text" placeholder="Stockholm">
+                        <button id="timeZoneBtn"
+                            class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2"
+                            aria-label="Search Time Zone" type="button">
+                            <i class="fas fa-clock"></i>
+                        </button>
+                    </div>
+                    <div id="timeZoneResult" class="mt-6"></div>
+                </div>
+            </div>
+
+            <!-- CURRENCY CONVERTER -->
+            <div class="w-full">
+                <div class="bg-white shadow-md rounded p-6">
+                    <h3 class="mb-4 text-lg font-bold">Currency Converter</h3>
+                    <p class="mb-4 text-gray-700">Enter amount and select currency to convert</p>
+                    <div class="relative">
+                        <input id="amount"
+                            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
+                            type="number" placeholder="100">
+                        <label for="fromCurrency">From Currency:</label>
+                        <select id="fromCurrency" class="border border-gray-400 rounded py-2 px-3">
+                            <option value="">From</option>
+                        </select>
+                        <label for="toCurrency">To Currency:</label>
+                        <select id="toCurrency" class="border border-gray-400 rounded py-2 px-3">
+                            <option value="">To</option>
+                        </select>
+                        <button id="convertBtn"
+                            class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2"
+                            aria-label="Convert Currency" type="button">
+                            <i class="fas fa-exchange-alt"></i>
+                        </button>
+                    </div>
+                    <div id="convertResult" class="mt-6"></div>
+                </div>
+            </div>
+
+            <!-- WEATHER FINDER -->
+            <div class="w-full">
+                <div class="bg-white shadow-md rounded p-6">
+                    <h3 class="mb-4 text-lg font-bold">Weather Finder</h3>
+                    <p class="mb-4 text-gray-700">Enter city to find weather information</p>
+                    <div class="relative">
+                        <input id="weatherCity"
+                            class="appearance-none border border-gray-400 rounded w-full py-2 px-3 focus:outline-none focus:shadow-outline"
+                            type="text" placeholder="Stockholm">
+                        <button id="weatherBtn"
+                            class="absolute right-0 top-0 mt-2 mr-2 bg-indigo-600 text-white rounded-full p-2"
+                            type="button" aria-label="Search Weather">
+                            <i class="fas fa-cloud-sun-rain"></i>
+                        </button>
+                    </div>
+                    <div id="weatherResult" class="mt-6">
+                        <div id="tempToggle">
+                            <button id="celsiusBtn" type="button">°C</button>
+                            <button id="fahrenheitBtn" type="button">°F</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Destination recommendations section -->
+            <div class="p-5 bg-gray-200">
+                <h1 class="text-xl font-bold mb-5 text-gray-800">Visiting Place Recommendations</h1>
+                <p class="mb-5 text-gray-800">Find your next destination based on your preferences:</p>
+                <div class="mb-5 flex justify-between">
+                    <input id="destination" type="text" class="p-2 border border-gray-400 rounded-lg"
+                        placeholder="Enter desired destination">
+                    <button id="destinationBtn" type="button"
+                        class="btn bg-indigo-500 text-white p-2 rounded-lg">Get Recommendations</button>
+                </div>
+                <p class="mb-5 text-gray-800">Our Recommendations:</p>
+                <ul id="destinationResults" class="list-disc">
+                    <!-- Recommendations will be inserted here -->
+                </ul>
+            </div>
+
+
+            <!-- Social media integration section -->
+            <div class="p-5 bg-gray-200">
+                <h1 class="text-xl font-bold mb-5">Social media</h1>
+                <p class="mb-5">Share your travel plans and experiences with your friends and family on social
+                    media:</p>
+                <div class="flex mb-5">
+                    <a href="#" class="p-2 bg-gray-500 text-white rounded mr-2">Facebook</a>
+                    <a href="#" class="p-2 bg-gray-500 text-white rounded mr-2">Twitter</a>
+                    <a href="#" class="p-2 bg-gray-500 text-white rounded">Instagram</a>
+                </div>
+            </div>
+
         </div>
-
-
-
-
     </main>
 
 

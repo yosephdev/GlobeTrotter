@@ -1,41 +1,28 @@
-document.getElementById("weatherBtn").addEventListener("click", function () {
-  let city = document.getElementById("weatherCity").value;
+document.getElementById("weatherBtn").addEventListener("click", () => {
+  const city = document.getElementById("weatherCity").value;
   let unit = "metric";
-  let temperatureElement = document.getElementById("weatherResult");
+  const temperatureElement = document.getElementById("weatherResult");
 
-  let celsiusBtn = document.getElementById("celsiusBtn");
-  let fahrenheitBtn = document.getElementById("fahrenheitBtn");
-
-  celsiusBtn.addEventListener("click", function () {
+  document.getElementById("celsiusBtn").addEventListener("click", () => {
     unit = "metric";
     updateTemperature();
   });
 
-  fahrenheitBtn.addEventListener("click", function () {
+  document.getElementById("fahrenheitBtn").addEventListener("click", () => {
     unit = "imperial";
     updateTemperature();
   });
 
-  function updateTemperature() {
-    fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${API_KEY}`
-    )
-      .then((response) => {
-        return response.json();
+  const updateTemperature = () => {
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unit}&appid=${API_KEY}`)
+      .then(response => response.json())
+      .then(json => {
+        temperatureElement.innerHTML = json.cod === "404" ? "City not found" : `Temperature: ${json.main.temp}°${unit === "metric" ? "C" : "F"}`;
       })
-      .then((json) => {
-        if (json.cod === "404") {
-          temperatureElement.innerHTML = "City not found";
-        } else {
-          temperatureElement.innerHTML = `Temperature: ${json.main.temp}°${
-            unit === "metric" ? "C" : "F"
-          }`;
-        }
-      })
-      .catch((error) => {
+      .catch(() => {
         temperatureElement.innerHTML = "Oh no!";
       });
-  }
+  };
 
   updateTemperature();
 });
